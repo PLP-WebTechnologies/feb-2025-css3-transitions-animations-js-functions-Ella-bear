@@ -1,23 +1,19 @@
-// --- Local Storage for Dark Mode ---
-const body = document.body;
-const toggleBtn = document.getElementById('toggleModeBtn');
-// Load preference
-if (localStorage.getItem('darkMode') === 'true') {
-  body.classList.add('dark');
-}
-// Toggle and store preference
-toggleBtn.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  localStorage.setItem('darkMode', body.classList.contains('dark'));
+// Toggle Modal Visibility
+const openModalButton = document.getElementById("openModal");
+const closeModalButton = document.getElementById("closeModal");
+const modal = document.getElementById("modal");
+
+openModalButton.addEventListener("click", () => {
+  modal.classList.remove("hidden");
 });
 
-// --- Animation Trigger ---
-const img = document.getElementById('sunset');
-const animateBtn = document.getElementById('animateBtn');
-animateBtn.addEventListener('click', () => {
-  img.classList.remove('animated');
-  
-  // Force reflow to restart animation
-  void img.offsetWidth;
-  img.classList.add('animated');
+closeModalButton.addEventListener("click", () => {
+  modal.classList.add("hidden");
 });
+
+// Example of a Function with Parameters and Return Value
+function calculateVacationCost(days, costPerDay) {
+  return days * costPerDay;
+}
+
+console.log(`Total cost: $${calculateVacationCost(7, 150)}`);
