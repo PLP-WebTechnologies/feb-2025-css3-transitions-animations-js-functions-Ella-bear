@@ -4,117 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Animated Button with localStorage</title>
-  <style>
-    /* Base styling */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
-    }
-
-    h1 {
-      font-weight: 700;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-
-    #clickCount {
-      margin: 1rem 0 2rem 0;
-      font-size: 1.25rem;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 6px rgba(0,0,0,0.4);
-    }
-
-    /* Animated button */
-    button {
-      background: #ff758c;
-      background-image: linear-gradient(45deg, #ff758c 0%, #ff7eb3 100%);
-      color: white;
-      font-size: 1.3rem;
-      font-weight: 600;
-      padding: 1rem 2.5rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 8px 15px rgba(255, 117, 140, 0.4);
-      transition: all 0.3s ease;
-      outline: none;
-      user-select: none;
-      position: relative;
-      overflow: hidden;
-    }
-
-    button:hover {
-      box-shadow: 0 15px 20px rgba(255, 117, 140, 0.6);
-      transform: translateY(-3px);
-    }
-
-    /* Animation triggered on click */
-    @keyframes pop {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 8px 15px rgba(255, 117, 140, 0.4);
-      }
-      50% {
-        transform: scale(1.2);
-        box-shadow: 0 15px 25px rgba(255, 117, 140, 0.8);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 8px 15px rgba(255, 117, 140, 0.4);
-      }
-    }
-
-    .pop-animation {
-      animation: pop 0.4s ease forwards;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Click Animation with localStorage</h1>
   <div id="clickCount">Button clicked 0 times</div>
   <button id="animatedButton">Click Me!</button>
-
-  <script>
-    (function () {
-      const button = document.getElementById('animatedButton');
-      const clickCountDiv = document.getElementById('clickCount');
-
-      // Retrieve click count from localStorage or default to 0
-      let clickCount = parseInt(localStorage.getItem('clickCount')) || 0;
-      updateClickCountText();
-
-      function updateClickCountText() {
-        clickCountDiv.textContent = `Button clicked ${clickCount} ${clickCount === 1 ? 'time' : 'times'}`;
-      }
-
-      // Function to trigger animation and store click count
-      function handleButtonClick() {
-        // Increment click count
-        clickCount++;
-        // Save to localStorage
-        localStorage.setItem('clickCount', clickCount);
-        updateClickCountText();
-
-        // Add animation class to trigger CSS animation
-        button.classList.add('pop-animation');
-
-        // Remove the animation class after animation ends to allow retrigger
-        button.addEventListener('animationend', () => {
-          button.classList.remove('pop-animation');
-        }, { once: true });
-      }
-
-      button.addEventListener('click', handleButtonClick);
-    })();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
 
