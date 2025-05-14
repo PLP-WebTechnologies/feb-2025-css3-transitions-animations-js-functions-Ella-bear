@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transitions & Animations</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>JS Animations</h1>
-    <img id="sunset" src="images/sunset.jpg" alt="Sunset">
-    <br>
-    <button id="animateBtn">Animate Image</button>
-    <br>
-    <button class="toggle-mode" id="toggleModeBtn">Toggle Dark Mode</button>
+  <header class="banner">Welcome to Travel Paradise!</header>
+  <button id="openModal" class="btn">Learn More</button>
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <p>Plan your dream vacation with us!</p>
+    </div>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
